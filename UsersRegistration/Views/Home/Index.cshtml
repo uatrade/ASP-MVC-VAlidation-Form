@@ -1,0 +1,36 @@
+﻿@model UsersRegistration.Models.GeneralUsersRole
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Список пользователей</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm())
+        {
+        @Html.ValidationSummary()
+        <p>Your FirstName:@Html.TextBoxFor(x => x.myusers.FirstName) </p>
+        <p>Your Lastname: @Html.TextBoxFor(x => x.myusers.LastName) </p>
+        <p>Your Login:    @Html.TextBoxFor(x => x.myusers.Login) </p>
+        <p>Your email: @Html.TextBoxFor(x => x.myusers.Email)</p>
+        <p>Your Password: @Html.TextBoxFor(x => x.myusers.Password) </p>
+        <p>Your phone: @Html.TextBoxFor(x => x.myusers.Phone)</p>
+        @*<p>Your Id: @Html.TextBoxFor(x => x.myusers.Id)</p>*@
+
+        <p>
+           Ваша роль:
+            @Html.DropDownListFor(x => x.roleOfUser.Name, new[] {
+    new SelectListItem() {Text = "Admin", Value = bool.TrueString}, new SelectListItem()
+    { Text = "User", Value = bool.FalseString} }, "Выбрать роль");
+        </p>
+        <input type="submit" value="Отправить" />
+        }     
+    </div>
+</body>
+</html>

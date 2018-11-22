@@ -1,0 +1,38 @@
+﻿@model List<UsersRegistration.Models.GeneralUsersRole>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ListOfUsers</title>
+</head>
+<body>
+    <div> 
+        <p>Список пользователей:</p>
+        @foreach (var item in Model)
+        {
+           <p>ID: @item.myusers.Id.ToString();</p>
+           <p>Login: @item.myusers.Login;</p>
+           <p>Имя: @item.myusers.FirstName;</p>
+           <p>Фамилия: @item.myusers.LastName;</p>
+           <p>Телефон: @item.myusers.Phone;</p>
+           <p>Почта: @item.myusers.Email;</p>
+           <p>Пароль: @item.myusers.Password;</p>         
+                    if (item.roleOfUser.Name == true)
+                    {
+                   <p>Роль: Admin</p>
+                    }
+                    else
+                    {
+                    <p>Роль: User</p>
+                    }
+                    <p>----------------------</p>
+        }
+
+    </div>
+</body>
+</html>
